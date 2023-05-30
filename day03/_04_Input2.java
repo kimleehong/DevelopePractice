@@ -57,7 +57,7 @@ public class _04_Input2 {
 
         sc.nextLine(); // next계열을 쓰면 \n 전에 있는 자료를 가져간다. nextLine은 \n까지 가져간다.
         // next 계열 후에 nextline 을 쓰면 nextline이 빈 \n을 추출한다.
-        // 따라서 두개를 저런 순서로 쓴다면 실제 출력될 nextline 앞에 한번 더 써서 \n을 빼줘야 된다.
+        // 따라서 두개를 저런 순서로 쓴다면 실제 출력될 nextline 앞에 nextline을 한번 더 써서 \n을 빼줘야 된다.
 
         System.out.print("이름을 입력해주세요 : ");
         String name = sc.nextLine();
