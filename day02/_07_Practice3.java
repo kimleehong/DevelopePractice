@@ -115,24 +115,28 @@ public class _07_Practice3 {
     public static void greeting2(int i, int j) {
         // 1 안녕하세요, // 2 하이~, // 3 봉쥬
 
-        if (i == 1) {
-            for (int k = 0; k < j; k++) {
-                System.out.println("안녕하세요.");
-            }
-
-        } else if (i == 2) {
-            for (int k = 0; k < j; k++) {
-                System.out.println("하이~");
-            }
-
-        } else if (i == 3) {
-            for (int k = 0; k < j; k++) {
-                System.out.println("봉쥬");
-            }
-
-        } else {
-            System.out.println("잘못 입력했습니다.");
+//        if (i == 1) {
+//            for (int k = 0; k < j; k++) {
+//                System.out.println("안녕하세요.");
+//            }
+//
+//        } else if (i == 2) {
+//            for (int k = 0; k < j; k++) {
+//                System.out.println("하이~");
+//            }
+//
+//        } else if (i == 3) {
+//            for (int k = 0; k < j; k++) {
+//                System.out.println("봉쥬");
+//            }
+//
+//        } else {
+//            System.out.println("잘못 입력했습니다.");
+//        }
+        for (int k = 0; k < j; k++) {
+            greeting1(i);
         }
+
 
     }
 
