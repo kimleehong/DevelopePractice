@@ -18,7 +18,6 @@ public class _11_Composition2 {
 
 class 사람1 {
     int 나이;
-//    int 나이 = 20; -> 한번에 쓰는 법
 
     팔 a왼팔;
 
