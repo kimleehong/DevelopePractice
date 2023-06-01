@@ -3,7 +3,7 @@ package day05;
 public class _05_Constructor1 {
     public static void main(String[] args) {
         Persons p1 = new Persons(2,22,"라일락");
-        // 객체를 만들면 반드시 초기화 해야된다.(변수에 초기값을 넣는 것)
+        // 객체를 만들면 반드시 초기화 하는 것이 좋다.(변수에 초기값을 넣는 것)
         // 초기화를 아래처럼 쓰면 너무 귀찮고 부정확하다.
 //        p1.no = 1;
 //        p1.age = 20;
