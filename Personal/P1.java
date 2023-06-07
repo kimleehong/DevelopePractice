@@ -2,81 +2,82 @@ package Personal;
 
 public class P1 {
     public static void main(String[] args) {
-        /*  직각삼각형 유형1
-         *
-         **
-         ***
-         ****
-         *****
-         */
-        for (int i = 0; i < 5; i++) {
+        f1(4);
+        System.out.println();
+        f2(4);
+        System.out.println();
+        f3(4);
+        System.out.println();
+        f4(4);
+        System.out.println();
+        f5(4);
+        System.out.println();
+        f6(4);
+    }
+
+    public static void f1(int n) {
+        for (int i = 0; i < n; i++) {
             for (int j = 0; j < i + 1; j++) {
                 System.out.print("*");
             }
             System.out.println();
         }
+    }
 
-        System.out.println("-----------------");
-
-        // 직각삼각형 유형2
-        for (int i = 0; i < 5; i++) {
-            for (int j = 5; j > i; j--) {
+    public static void f2(int n) {
+        for (int i = 0; i < n; i++) {
+            for (int j = n; j > i; j--) {
                 System.out.print("*");
             }
             System.out.println();
         }
+    }
 
-        System.out.println("-----------------");
-
-        // 직각삼각형 유형3(1의 역)
-        for (int i = 0; i < 5; i++) {
-            for (int j = 0; j < 4 - i; j++) {
+    public static void f3(int n) {
+        for (int i = 0; i < n; i++) {
+            for (int k = 0; k < n - 1 - i; k++) {
                 System.out.print(" ");
             }
-            for (int k = 0; k < i + 1; k++) {
+            for (int j = 0; j < i + 1; j++) {
                 System.out.print("*");
             }
             System.out.println();
         }
+    }
 
-        System.out.println("-----------------");
-
-        // 직각삼각형 유형4(2의 역)
-        for (int i = 0; i < 5; i++) {
+    public static void f4(int n) {
+        for (int i = 0; i < n; i++) {
             for (int j = 0; j < i; j++) {
                 System.out.print(" ");
             }
-            for (int k = 0; k < 5 - i; k++) {
+            for (int k = 0; k < n - i; k++) {
                 System.out.print("*");
             }
             System.out.println();
         }
+    }
 
-        System.out.println("-----------------");
-
-        // 직각삼각형 유형5(정삼각형)
-        for (int i = 0; i < 5; i++) {
-            for (int j = 0; j < 4 - i; j++) {
+    public static void f5(int n) {
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n - 1 - i; j++) {
                 System.out.print(" ");
             }
-            for (int k = 0; k < (2 * i + 1); k++) {
+            for (int k = 0; k < 2 * i + 1; k++) {
                 System.out.print("*");
             }
             System.out.println();
         }
+    }
 
-        System.out.println("-----------------");
-
-        // 역직각삼각형 유형6(5의 역)
-        for (int i = 5; i > 0; i--) {
-            for (int j = 0; j < 5 - i; j++) {
+    public static void f6(int n) {
+        for (int i = n; i > 0; i--) {
+            for (int j = 0; j < n - i; j++) {
                 System.out.print(" ");
             }
-            for (int k = 0; k < (2 * i - 1); k++) {
+            for (int k = 0; k < 2 * i - 1; k++) {
                 System.out.print("*");
             }
             System.out.println();
         }
-
     }
 }
