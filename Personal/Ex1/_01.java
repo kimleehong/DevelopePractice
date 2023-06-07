@@ -71,6 +71,7 @@ class Duck {
     public void swim(){
         System.out.println("오리가 오리발로 헤엄칩니다.");
     }
+
 }
 
 class WhiteDuck extends Duck {

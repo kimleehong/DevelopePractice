@@ -18,19 +18,21 @@ public class _02 {
         whiteDuck.performSwim();
 
         System.out.println("=== 고무오리1 ===");
-        RubberDuck rubberDuck = new RubberDuck("고무오리1");
+        Duck rubberDuck = new RubberDuck("고무오리1");
         rubberDuck.performFly();
         rubberDuck.performSwim();
 
         System.out.println("=== 고무오리2 ===");
-        RubberDuck rubberDuck2 = new RubberDuck("고무오리2");
+        Duck rubberDuck2 = new RubberDuck("고무오리2");
         rubberDuck2.performFly();
         rubberDuck2.performSwim();
 
         System.out.println("=== 아수라오리 ===");
-        AsuraDuck asura = new AsuraDuck("아수라오리");
+        Duck asura = new AsuraDuck("아수라오리");
         asura.performFly();
         asura.performSwim();
+
+
     }
 }
 
