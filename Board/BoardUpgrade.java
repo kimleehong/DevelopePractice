@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class _06_BoardUpgrade {
+public class BoardUpgrade {
 
     private static List<String> titles = new ArrayList<>();
     private static List<String> contents = new ArrayList<>();
