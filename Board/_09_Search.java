@@ -137,10 +137,10 @@ public class _09_Search {
                     num.remove(index - 1);
                     System.out.println(index + "번 게시물이 삭제되었습니다.");
 
-                    // 삭제한 게시물의 번호 이후 게시물 번호 재조정
-                    for (int i = index - 1; i < titles.size(); i++) {
-                        num.set(i, num.get(i) - 1);
-                    }
+//                    // 삭제한 게시물의 번호 이후 게시물 번호 재조정
+//                    for (int i = index - 1; i < titles.size(); i++) {
+//                        num.set(i, num.get(i) - 1);
+//                    }
                 }
             } else if (cmd.equals("detail")) {
                 System.out.print("상세보기 할 게시물 번호를 입력해주세요 : ");
