@@ -55,8 +55,9 @@ public class _10_NumberOfViews {
         Scanner sc = new Scanner(System.in);
         List<String> titles = new ArrayList<>();
         List<String> contents = new ArrayList<>();
-        ArrayList<Integer> ids = new ArrayList<>();
+        List<Integer> ids = new ArrayList<>();
         List<String> today = new ArrayList<>();
+        List<String> viewCount = new ArrayList<>();
 
         int id = 1;
 
@@ -65,18 +66,21 @@ public class _10_NumberOfViews {
         // 테스트 데이터 추가
         titles.add("안녕하세요 반갑습니다. 자바 공부중이에요.");
         contents.add("첫 번째 게시물 내용입니다.");
+        viewCount.add("0");
         ids.add(id);
         id++;
         today.add(LocalDateTime.now().format(formatter));
 
         titles.add("자바 질문좀 할게요~");
         contents.add("두 번째 게시물 내용입니다.");
+        viewCount.add("0");
         ids.add(id);
         id++;
         today.add(LocalDateTime.now().format(formatter));
 
         titles.add("정처기 따야되나요?");
         contents.add("세 번째 게시물 내용입니다.");
+        viewCount.add("0");
         ids.add(id);
         id++;
         today.add(LocalDateTime.now().format(formatter));
@@ -194,6 +198,11 @@ public class _10_NumberOfViews {
                     System.out.println("제목 : " + titles.get(targetIndex));
                     System.out.println("내용 : " + contents.get(targetIndex));
                     System.out.println("등록날짜 : " + today.get(targetIndex));
+
+                    int view = Integer.parseInt(viewCount.get(targetIndex));
+                    viewCount.set(targetIndex, String.valueOf(view + 1));
+
+                    System.out.println("조회수 : " + viewCount.get(targetIndex));
                     System.out.println("==================");
                 }
             } else if (cmd.equals("search")) {
