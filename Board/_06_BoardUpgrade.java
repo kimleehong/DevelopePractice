@@ -1,10 +1,10 @@
-package BulletinBoard;
+package Board;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class BulletinBoardUpgrade {
+public class _06_BoardUpgrade {
 
     private static List<String> titles = new ArrayList<>();
     private static List<String> contents = new ArrayList<>();

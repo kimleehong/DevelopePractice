@@ -1,4 +1,4 @@
-package BulletinBoard;
+package Board;
 
 import java.util.Scanner;
 

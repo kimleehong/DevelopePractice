@@ -1,13 +1,38 @@
-package Personal;
+package Board;
 
+//# 기능5 : 게시물 삭제
+//        - 명령어 : delete
+//        - 설명 : delete로 선택한 게시물을 삭제한다.
+//        - 입출력 예시
+//        ```
+//        명령어 : list
+//        ==================
+//        번호 : 1
+//        제목 : 제목1
+//        ==================
+//        번호 : 2
+//        제목 : 제목2
+//        ==================
+//        명령어 : delete
+//        삭제할 게시물 번호 : 3
+//        없는 게시물 번호입니다.
+//        명령어 : delete
+//        삭제할 게시물 번호 : 1
+//        1번 게시물이 삭제되었습니다.
+//        명령어 : list
+//        ==================
+//        번호 : 2
+//        제목 : 제목2
+//        ==================
+//        ```
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class BulletinBoard {
-
+public class _05_Delete {
     public static void main(String[] args) {
+
         Scanner sc = new Scanner(System.in);
         List<String> titles = new ArrayList<>();
         List<String> contents = new ArrayList<>();
@@ -17,9 +42,9 @@ public class BulletinBoard {
             String cmd = sc.nextLine();
 
             if (cmd.equals("add")) {
-                System.out.print("게시물 제목을 입력해 주세요 : ");
+                System.out.print("게시물 제목을 입력해주세요 : ");
                 String title = sc.nextLine();
-                System.out.print("게시물 내용을 입력해 주세요 : ");
+                System.out.print("게시물 내용을 입력해주세요 : ");
                 String content = sc.nextLine();
 
                 titles.add(title);
@@ -30,11 +55,11 @@ public class BulletinBoard {
                 if (titles.isEmpty()) {
                     System.out.println("등록된 게시물이 없습니다.");
                 } else {
-                    System.out.println("================================");
+                    System.out.println("==================");
                     for (int i = 0; i < titles.size(); i++) {
                         System.out.println("번호 : " + (i + 1));
                         System.out.println("제목 : " + titles.get(i));
-                        System.out.println("================================");
+                        System.out.println("==================");
                     }
                 }
             } else if (cmd.equals("update")) {
@@ -50,29 +75,30 @@ public class BulletinBoard {
                     System.out.print("새로운 내용 : ");
                     String newContent = sc.nextLine();
 
-                    titles.set(index - 1,newTitle);
-                    contents.set(index - 1,newContent);
+                    titles.set(index - 1, newTitle);
+                    contents.set(index - 1, newContent);
 
                     System.out.println(index + "번 게시물이 수정되었습니다.");
                 }
             } else if (cmd.equals("delete")) {
-                System.out.print("삭제할 게시물 번호를 입력 : ");
+                System.out.print("삭제할 게시물 번호 : ");
                 int index = sc.nextInt();
                 sc.nextLine();
 
                 if (index < 1 || index > titles.size()) {
-                    System.out.println("해당 게시물이 존재하지 않습니다.");
+                    System.out.println("없는 게시물 번호입니다.");
                 } else {
                     titles.remove(index - 1);
                     contents.remove(index - 1);
                     System.out.println(index + "번 게시물이 삭제되었습니다.");
                 }
-            } else if (cmd.equals("exit")){
+            } else if (cmd.equals("exit")) {
                 System.out.println("프로그램을 종료합니다.");
                 break;
             } else {
-                System.out.println("잘못된 명령어입니다. 다시 입력해 주세요.");
+                System.out.println("잘못된 명령어입니다. 다시 입력해주세요.");
             }
         }
+
     }
 }

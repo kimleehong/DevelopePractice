@@ -1,41 +1,24 @@
-package BulletinBoard;
-//# 기능4 : 게시물 수정
-//        - 명령어 : update
-//        - 설명 : update로 선택한 게시물의 제목과 내용을 수정한다.
+package Board;
+//# 기능3 : 게시물 조회
+//        - 명령어 : list
+//        - 설명 : add로 저장된 게시물의 목록이 나온다.
 //        - 입출력 예시
 //        ```
 //        명령어 : list
 //        ==================
-//        번호 : 1
 //        제목 : 제목1
+//        내용 : 내용1
 //        ==================
-//        번호 : 2
 //        제목 : 제목2
-//        ==================
-//        명령어 : update
-//        삭제할 게시물 번호 : 3
-//        없는 게시물 번호입니다.
-//        명령어 : update
-//        삭제할 게시물 번호 : 1
-//        제목 : 새로운 제목1
-//        내용 : 새로운 내용1
-//        1번 게시물이 수정되었습니다.
-//        명령어 : list
-//        ==================
-//        번호 : 1
-//        제목 : 제목1
-//        ==================
-//        번호 : 2
-//        제목 : 새로운 제목2
+//        내용 : 내용2
 //        ==================
 //        ```
-
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class _04_Update {
+public class _03_Inquiry {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         List<String> titles = new ArrayList<>();
@@ -48,6 +31,7 @@ public class _04_Update {
             if (cmd.equals("add")) {
                 System.out.print("게시물 제목을 입력해주세요 : ");
                 String title = sc.nextLine();
+
                 System.out.print("게시물 내용을 입력해주세요 : ");
                 String content = sc.nextLine();
 
@@ -61,28 +45,10 @@ public class _04_Update {
                 } else {
                     System.out.println("==================");
                     for (int i = 0; i < titles.size(); i++) {
-                        System.out.println("번호 : " + (i + 1));
                         System.out.println("제목 : " + titles.get(i));
+                        System.out.println("내용 : " + contents.get(i));
                         System.out.println("==================");
                     }
-                }
-            } else if (cmd.equals("update")) {
-                System.out.print("수정할 게시물 번호 : ");
-                int index = sc.nextInt();
-                sc.nextLine();
-
-                if (index < 1 || index > titles.size()) {
-                    System.out.println("없는 게시물 번호입니다.");
-                } else {
-                    System.out.print("새로운 제목 : ");
-                    String newTitle = sc.nextLine();
-                    System.out.print("새로운 내용 : ");
-                    String newContent = sc.nextLine();
-
-                    titles.set(index - 1, newTitle);
-                    contents.set(index - 1, newContent);
-
-                    System.out.println(index + "번 게시물이 수정되었습니다.");
                 }
             } else if (cmd.equals("exit")) {
                 System.out.println("프로그램을 종료합니다.");
