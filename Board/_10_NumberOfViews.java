@@ -55,33 +55,31 @@ public class _10_NumberOfViews {
         Scanner sc = new Scanner(System.in);
         List<String> titles = new ArrayList<>();
         List<String> contents = new ArrayList<>();
+        ArrayList<Integer> ids = new ArrayList<>();
         List<String> today = new ArrayList<>();
-        List<Integer> num = new ArrayList<>();
-        List<Integer> views = new ArrayList<>();
+
+        int id = 1;
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy.MM.dd HH:mm:ss");
 
-        // 초기 데이터 추가
-        num.add(1);
+        // 테스트 데이터 추가
         titles.add("안녕하세요 반갑습니다. 자바 공부중이에요.");
-        contents.add("자바 공부 중인데 궁금한 점이 있어요.");
-        LocalDateTime currentDateTime = LocalDateTime.now();
-        today.add(currentDateTime.format(formatter));
-        views.add(0);
+        contents.add("첫 번째 게시물 내용입니다.");
+        ids.add(id);
+        id++;
+        today.add(LocalDateTime.now().format(formatter));
 
-        num.add(2);
         titles.add("자바 질문좀 할게요~");
-        contents.add("자바에 대해 궁금한 게 있어서요.");
-        currentDateTime = LocalDateTime.now();
-        today.add(currentDateTime.format(formatter));
-        views.add(0);
+        contents.add("두 번째 게시물 내용입니다.");
+        ids.add(id);
+        id++;
+        today.add(LocalDateTime.now().format(formatter));
 
-        num.add(3);
         titles.add("정처기 따야되나요?");
-        contents.add("정처기 자격증을 따는 것이 좋을까요?");
-        currentDateTime = LocalDateTime.now();
-        today.add(currentDateTime.format(formatter));
-        views.add(0);
+        contents.add("세 번째 게시물 내용입니다.");
+        ids.add(id);
+        id++;
+        today.add(LocalDateTime.now().format(formatter));
 
         while (true) {
             System.out.print("명령어 : ");
@@ -92,15 +90,14 @@ public class _10_NumberOfViews {
                 String title = sc.nextLine();
                 System.out.print("게시물 내용을 입력해주세요 : ");
                 String content = sc.nextLine();
-                currentDateTime = LocalDateTime.now();
+                LocalDateTime currentDateTime = LocalDateTime.now();
                 String formattedDateTime = currentDateTime.format(formatter);
 
-                int newNumber = num.get(num.size() - 1) + 1; // 새로운 게시물의 번호 설정
-                num.add(newNumber);
                 titles.add(title);
                 contents.add(content);
+                ids.add(id);
+                id++;
                 today.add(formattedDateTime);
-                views.add(0);
 
                 System.out.println("게시물이 등록되었습니다.");
             } else if (cmd.equals("list")) {
@@ -109,7 +106,7 @@ public class _10_NumberOfViews {
                 } else {
                     System.out.println("==================");
                     for (int i = 0; i < titles.size(); i++) {
-                        System.out.println("번호 : " + num.get(i));
+                        System.out.println("번호 : " + ids.get(i));
                         System.out.println("제목 : " + titles.get(i));
                         System.out.println("==================");
                     }
@@ -119,19 +116,31 @@ public class _10_NumberOfViews {
                 int index = sc.nextInt();
                 sc.nextLine();
 
-                if (index < 1 || index > titles.size()) {
+                int targetIndex = -1;
+
+                // 전체탐색
+                for (int i = 0; i < ids.size(); i++) {
+                    int a = ids.get(i);
+
+                    if (a == index) {
+                        targetIndex = i;
+                        break;
+                    }
+                }
+
+                if (targetIndex == -1) {
                     System.out.println("없는 게시물 번호입니다.");
                 } else {
                     System.out.print("새로운 제목 : ");
                     String newTitle = sc.nextLine();
                     System.out.print("새로운 내용 : ");
                     String newContent = sc.nextLine();
-                    currentDateTime = LocalDateTime.now();
+                    LocalDateTime currentDateTime = LocalDateTime.now();
                     String formattedDateTime = currentDateTime.format(formatter);
 
-                    titles.set(index - 1, newTitle);
-                    contents.set(index - 1, newContent);
-                    today.set(index - 1, formattedDateTime);
+                    titles.set(targetIndex, newTitle);
+                    contents.set(targetIndex, newContent);
+                    today.set(targetIndex, formattedDateTime);
 
                     System.out.println(index + "번 게시물이 수정되었습니다.");
                 }
@@ -140,36 +149,51 @@ public class _10_NumberOfViews {
                 int index = sc.nextInt();
                 sc.nextLine();
 
-                if (index < 1 || index > titles.size()) {
+                int targetIndex = -1;
+
+                // 전체탐색
+                for (int i = 0; i < ids.size(); i++) {
+                    int a = ids.get(i);
+
+                    if (a == index) {
+                        targetIndex = i;
+                        break;
+                    }
+                }
+
+                if (targetIndex == -1) {
                     System.out.println("없는 게시물 번호입니다.");
                 } else {
-                    titles.remove(index - 1);
-                    contents.remove(index - 1);
-                    num.remove(index - 1);
-                    views.remove(index - 1);
+                    titles.remove(targetIndex);
+                    contents.remove(targetIndex);
+                    ids.remove(targetIndex);
                     System.out.println(index + "번 게시물이 삭제되었습니다.");
-
-//                    // 삭제한 게시물의 번호 이후 게시물 번호 재조정
-//                    for (int i = index - 1; i < titles.size(); i++) {
-//                        num.set(i, num.get(i) - 1);
-//                    }
                 }
+
             } else if (cmd.equals("detail")) {
                 System.out.print("상세보기 할 게시물 번호를 입력해주세요 : ");
                 int index = sc.nextInt();
                 sc.nextLine();
-                if (index < 1 || index > titles.size()) {
+                int targetIndex = -1;
+
+                // 게시물 번호에 해당하는 인덱스 찾기
+                for (int i = 0; i < ids.size(); i++) {
+                    int a = ids.get(i);
+
+                    if (a == index) {
+                        targetIndex = i;
+                        break;
+                    }
+                }
+
+                if (targetIndex == -1) {
                     System.out.println("존재하지 않는 게시물 번호입니다.");
                 } else {
-
-                    int viewCount = views.get(index - 1);
-                    viewCount++;
-                    views.set(index - 1, viewCount);
-
                     System.out.println("==================");
-                    System.out.println("제목 : " + titles.get(index - 1));
-                    System.out.println("내용 : " + contents.get(index - 1));
-                    System.out.println("등록날짜 : " + today.get(index - 1));
+                    System.out.println("번호 : " + ids.get(targetIndex));
+                    System.out.println("제목 : " + titles.get(targetIndex));
+                    System.out.println("내용 : " + contents.get(targetIndex));
+                    System.out.println("등록날짜 : " + today.get(targetIndex));
                     System.out.println("==================");
                 }
             } else if (cmd.equals("search")) {
@@ -177,33 +201,20 @@ public class _10_NumberOfViews {
                 String keyword = sc.nextLine();
                 boolean found = false; // 검색 결과가 있는지 여부를 체크하는 변수
 
-                try {
-                    int searchNum = Integer.parseInt(keyword); // 입력값을 정수로 변환 시도
-                    // 게시물 번호로 검색
-                    int index = num.indexOf(searchNum);
-                    if (index != -1) { // 검색 결과가 있으면
+                for (int i = 0; i < titles.size(); i++) {
+                    if (titles.get(i).contains(keyword)) {
                         System.out.println("==================");
-                        System.out.println("번호 : " + num.get(index));
-                        System.out.println("제목 : " + titles.get(index));
+                        System.out.println("번호 : " + ids.get(i));
+                        System.out.println("제목 : " + titles.get(i));
                         System.out.println("==================");
-                        found = true;
-                    }
-                } catch (NumberFormatException e) {
-                    // 입력값이 숫자가 아닌 경우 예외 처리
-                    // 제목으로 검색
-                    for (int i = 0; i < titles.size(); i++) {
-                        if (titles.get(i).contains(keyword)) {
-                            System.out.println("==================");
-                            System.out.println("번호 : " + num.get(i));
-                            System.out.println("제목 : " + titles.get(i));
-                            System.out.println("==================");
-                            found = true; // 검색 결과가 있다면 found를 true로 변경
-                        }
+                        found = true; // 검색 결과가 있다면 found를 true로 변경
                     }
                 }
+
                 if (!found) { // 검색 결과가 없는 경우에만 메시지 출력
                     System.out.println("검색 결과가 없습니다.");
                 }
+
             } else if (cmd.equals("exit")) {
                 System.out.println("프로그램을 종료합니다.");
                 break;
