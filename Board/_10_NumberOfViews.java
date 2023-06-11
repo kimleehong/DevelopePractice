@@ -60,25 +60,26 @@ public class _10_NumberOfViews {
         List<Integer> countOfView = new ArrayList<>();
 
         int id = 1;
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm");
+        LocalDateTime today = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 
         titles.add("안녕하세요 반갑습니다. 자바 공부중이에요.");
         contents.add("첫번째 게시물 내용입니다.");
-        registrationDates.add(LocalDateTime.now());
+        registrationDates.add(today);
         ids.add(id);
         id++;
         countOfView.add(0);
 
         titles.add("자바 질문좀 할게요~");
         contents.add("두번째 게시물 내용입니다.");
-        registrationDates.add(LocalDateTime.now());
+        registrationDates.add(today);
         ids.add(id);
         id++;
         countOfView.add(0);
 
         titles.add("정처기 따야되나요?");
         contents.add("세번째 게시물 내용입니다.");
-        registrationDates.add(LocalDateTime.now());
+        registrationDates.add(today);
         ids.add(id);
         id++;
         countOfView.add(0);
@@ -163,7 +164,7 @@ public class _10_NumberOfViews {
 
                     titles.set(target, newTitle);
                     contents.set(target, newContent);
-                    registrationDates.set(target, LocalDateTime.now());
+                    registrationDates.set(target, today);
 
                     System.out.println(index + "번 게시물이 수정되었습니다.");
                 }
