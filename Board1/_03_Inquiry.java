@@ -1,4 +1,4 @@
-package Board;
+package Board1;
 //# 기능3 : 게시물 조회
 //        - 명령어 : list
 //        - 설명 : add로 저장된 게시물의 목록이 나온다.

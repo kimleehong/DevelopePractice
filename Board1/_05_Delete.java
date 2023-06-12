@@ -1,4 +1,4 @@
-package Board;
+package Board1;
 
 //# 기능5 : 게시물 삭제
 //        - 명령어 : delete

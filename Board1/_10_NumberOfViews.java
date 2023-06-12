@@ -1,4 +1,4 @@
-package Board;
+package Board1;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
