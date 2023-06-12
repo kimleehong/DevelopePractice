@@ -1,4 +1,4 @@
-package Personal.board;
+package Board;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -15,17 +15,7 @@ public class App {
         LocalDateTime today = LocalDateTime.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 
-        Article[] defaultArticles = {
-                new Article(no, "안녕하세요 반갑습니다. 자바 공부중이에요.", "첫번째 게시물 내용입니다."),
-                new Article(no, "자바 질문좀 할게요~", "두번째 게시물 내용입니다."),
-                new Article(no, "정처기 따야되나요?", "세번째 게시물 내용입니다.")
-        };
-
-        for (Article article : defaultArticles) {
-            article.setRegistrationDate(today);
-            articles.add(article);
-            no++;
-        }
+        addDefaultPosts();
 
         while (true) {
             System.out.print("명령어: ");
@@ -51,8 +41,7 @@ public class App {
                     searchPost();
                     break;
                 case "exit":
-                    searchPost();
-                    System.out.println("프로그램을 종료합니다.");
+                    exit();
                     return;
                 default:
                     System.out.println("잘못된 명령어입니다. 다시 입력해주세요.");
@@ -89,13 +78,30 @@ public class App {
         if (articles.isEmpty()) {
             System.out.println("등록된 게시물이 없습니다.");
         } else {
-            System.out.println("==================================");
+            System.out.println("=================");
             for (Article article : articles) {
                 System.out.println("번호: " + article.getNo());
                 System.out.println("제목: " + article.getTitle());
-                System.out.println("==================================");
+                System.out.println("=================");
             }
         }
+    }
+
+    public void addDefaultPosts() {
+        LocalDateTime now = LocalDateTime.now();
+
+        Article[] defaultArticles = {
+                new Article(no++, "안녕하세요 반갑습니다. 자바 공부중이에요.", "첫번째 게시물 내용입니다."),
+                new Article(no++, "자바 질문좀 할게요~", "두번째 게시물 내용입니다."),
+                new Article(no++, "정처기 따야되나요?", "세번째 게시물 내용입니다.")
+        };
+
+        for (Article article : defaultArticles) {
+            article.setRegistrationDate(now);
+            articles.add(article);
+        }
+
+        System.out.println("기본 게시물이 등록되었습니다.");
     }
 
     private void deletePost() {
@@ -175,5 +181,9 @@ public class App {
                 System.out.println("==================");
             }
         }
+    }
+
+    private void exit(){
+        System.out.println("프로그램을 종료합니다.");
     }
 }

@@ -1,7 +1,7 @@
-package Personal.board;
+package Board;
 
 
-public class Board {
+public class Main {
 
     public static void main(String[] args) {
         App app = new App();

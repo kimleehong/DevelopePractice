@@ -1,4 +1,4 @@
-package Personal.board;
+package Board;
 
 import java.time.LocalDateTime;
 

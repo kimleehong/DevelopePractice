@@ -1,4 +1,4 @@
-package Board1;
+package Board_first;
 
 import java.util.Scanner;
 

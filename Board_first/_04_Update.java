@@ -1,4 +1,4 @@
-package Board1;
+package Board_first;
 //# 기능4 : 게시물 수정
 //        - 명령어 : update
 //        - 설명 : update로 선택한 게시물의 제목과 내용을 수정한다.
