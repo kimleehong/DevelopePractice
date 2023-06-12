@@ -192,8 +192,8 @@ public class _10_NumberOfViews {
                     System.out.println("내용: " + contents.get(target));
                     System.out.println("등록날짜: " + registrationDates.get(target).format(formatter));
 
-                    int view = countOfView.get(target);
-                    countOfView.set(target, (view + 1));
+                    int view = countOfView.get(target) + 1;
+                    countOfView.set(target, view);
 
                     System.out.println("조회수: " + countOfView.get(target));
                     System.out.println("==================");
