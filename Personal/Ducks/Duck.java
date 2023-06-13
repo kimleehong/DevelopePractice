@@ -1,7 +1,5 @@
 package Personal.Ducks;
 
-import Assesment1.*;
-
 public class Duck {
     public static void main(String[] args) {
         오리 a오리 = new 청둥오리();// 청둥오리가 만들어집니다. 청둥오리는 기본 날개를 가지고 태어납니다.

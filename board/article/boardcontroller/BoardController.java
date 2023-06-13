@@ -1,4 +1,6 @@
-package Board;
+package board.article.boardcontroller;
+
+import board.article.entity.Article;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -6,50 +8,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class App {
+public class BoardController {
     List<Article> articles = new ArrayList<>();
     int no = 1;
     Scanner sc = new Scanner(System.in);
-
-    public void start() {
-        LocalDateTime today = LocalDateTime.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
-
-        addDefaultPosts();
-
-        while (true) {
-            System.out.print("명령어: ");
-            String cmd = sc.nextLine();
-
-            switch (cmd) {
-                case "add":
-                    addPost();
-                    break;
-                case "list":
-                    listPosts();
-                    break;
-                case "delete":
-                    deletePost();
-                    break;
-                case "update":
-                    updatePost();
-                    break;
-                case "detail":
-                    viewPost();
-                    break;
-                case "search":
-                    searchPost();
-                    break;
-                case "exit":
-                    exit();
-                    return;
-                default:
-                    System.out.println("잘못된 명령어입니다. 다시 입력해주세요.");
-            }
-        }
-    }
-
-    private Article findArticleById(int index) {
+    public Article findArticleById(int index) {
         for (Article article : articles) {
             if (article.getNo() == index) {
                 return article;
@@ -58,7 +21,7 @@ public class App {
         return null;
     }
 
-    private void addPost() {
+    public void addPost() {
         System.out.print("게시물 제목을 입력해주세요: ");
         String title = sc.nextLine();
         System.out.print("게시물 내용을 입력해주세요: ");
@@ -74,7 +37,7 @@ public class App {
         System.out.println("게시물이 등록되었습니다.");
     }
 
-    private void listPosts() {
+    public void listPosts() {
         if (articles.isEmpty()) {
             System.out.println("등록된 게시물이 없습니다.");
         } else {
@@ -104,7 +67,7 @@ public class App {
         System.out.println("기본 게시물이 등록되었습니다.");
     }
 
-    private void deletePost() {
+    public void deletePost() {
         System.out.print("삭제할 게시물 번호: ");
         int index = Integer.parseInt(sc.nextLine());
 
@@ -118,7 +81,7 @@ public class App {
         }
     }
 
-    private void updatePost() {
+    public void updatePost() {
         System.out.print("수정할 게시물 번호: ");
         int index = Integer.parseInt(sc.nextLine());
 
@@ -139,7 +102,7 @@ public class App {
         }
     }
 
-    private void viewPost() {
+    public void viewPost() {
         System.out.print("상세보기 할 게시물 번호를 입력해주세요: ");
         int index = Integer.parseInt(sc.nextLine());
         Article article = findArticleById(index);
@@ -159,7 +122,7 @@ public class App {
         }
     }
 
-    private void searchPost() {
+    public void searchPost() {
         System.out.print("검색할 키워드를 입력해주세요: ");
         String keyword = sc.nextLine();
 
@@ -181,9 +144,5 @@ public class App {
                 System.out.println("==================");
             }
         }
-    }
-
-    private void exit(){
-        System.out.println("프로그램을 종료합니다.");
     }
 }

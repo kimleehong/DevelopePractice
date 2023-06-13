@@ -1,4 +1,4 @@
-package Board;
+package board.article.entity;
 
 import java.time.LocalDateTime;
 
