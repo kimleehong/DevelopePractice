@@ -12,14 +12,6 @@ public class BoardController {
     List<Article> articles = new ArrayList<>();
     int no = 1;
     Scanner sc = new Scanner(System.in);
-    public Article findArticleById(int index) {
-        for (Article article : articles) {
-            if (article.getNo() == index) {
-                return article;
-            }
-        }
-        return null;
-    }
 
     public void addPost() {
         System.out.print("게시물 제목을 입력해주세요: ");
@@ -65,6 +57,15 @@ public class BoardController {
         }
 
         System.out.println("기본 게시물이 등록되었습니다.");
+    }
+
+    public Article findArticleById(int index) {
+        for (Article article : articles) {
+            if (article.getNo() == index) {
+                return article;
+            }
+        }
+        return null;
     }
 
     public void deletePost() {

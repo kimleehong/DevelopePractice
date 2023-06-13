@@ -11,7 +11,8 @@ public class App {
     SystemController systemController;
     BoardController boardController;
     Scanner sc;
-    App(){
+
+    App() {
         this.systemController = new SystemController();
         this.boardController = new BoardController();
         this.sc = new Scanner(System.in);
@@ -47,7 +48,7 @@ public class App {
                     boardController.searchPost();
                     break;
                 case "exit":
-                    SystemController.exit();
+                    systemController.exit();
                     return;
                 default:
                     System.out.println("잘못된 명령어입니다. 다시 입력해주세요.");
