@@ -35,7 +35,6 @@ public class BoardController {
 
         if (articles.isEmpty()) {
             System.out.println("등록된 게시물이 없습니다.");
-            return;
         } else {
             articleRepository.printArticles(articles);
         }
@@ -49,7 +48,6 @@ public class BoardController {
 
         if (article == null) {
             System.out.println("없는 게시물 번호입니다.");
-            return;
         } else {
             articleRepository.delete(article);
             System.out.println(index + "번 게시물이 삭제되었습니다.");
@@ -64,7 +62,6 @@ public class BoardController {
 
         if (article == null) {
             System.out.println("없는 게시물 번호입니다.");
-            return;
         } else {
             System.out.print("새로운 제목: ");
             String newTitle = sc.nextLine();
