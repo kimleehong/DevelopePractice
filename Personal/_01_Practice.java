@@ -1,5 +1,7 @@
 package Personal;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -10,6 +12,7 @@ public class _01_Practice {
         List<String> titles = new ArrayList<>();
         List<String> contents = new ArrayList<>();
         List<Integer> ids = new ArrayList<>();
+        List<String> registrationDates = new ArrayList<>();
 
         int id = 1;
 
@@ -26,6 +29,7 @@ public class _01_Practice {
                 System.out.print("게시물 내용을 입력해 주세요 : ");
                 String content = sc.nextLine();
 
+                registrationDates.add(fomattedNow());
                 titles.add(title);
                 contents.add(content);
                 ids.add(id);
@@ -120,13 +124,23 @@ public class _01_Practice {
                         System.out.println("번호 : " + ids.get(target));
                         System.out.println("제목 : " + titles.get(target));
                         System.out.println("내용 : " + contents.get(target));
+                        System.out.println("등록날짜 : " + registrationDates.get(target));
                         System.out.println("==================");
                 }
-            } else {
+            } else if(cmd.equals("search")) {
+
+            }
+            else {
                 System.out.println("잘못입력하셨습니다.");
             }
         }
 
     }
 
+    public static String fomattedNow() {
+        LocalDateTime now = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+        String formattedDateTime = now.format(formatter);
+        return formattedDateTime;
+    }
 }
