@@ -28,12 +28,12 @@ public class ArticleController {
 
         Article article2 = new Article("자바 질문좀 할게요~", "두번째 내용입니다.", id);
         article1.setRegistrationDate(formattedDate());
-        articles.add(article1);
+        articles.add(article2);
         id++;
 
         Article article3 = new Article("정처기 따야되나요?", "세번째 내용입니다.", id);
         article1.setRegistrationDate(formattedDate());
-        articles.add(article1);
+        articles.add(article3);
         id++;
     }
 

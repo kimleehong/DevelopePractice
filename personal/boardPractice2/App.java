@@ -10,13 +10,14 @@ public class App {
     SystemController systemController;
     Scanner sc;
 
-    App(){
+    App() {
         articleController = new ArticleController();
         systemController = new SystemController();
         sc = new Scanner(System.in);
         articleController.addTestData();
     }
-    public void start(){
+
+    public void start() {
 
         while (true) {
             System.out.print("명령어 : ");
