@@ -1,4 +1,4 @@
-package personal;
+package personal.boardPractice;
 
 public class _02_Main {
     public static void main(String[] args) {

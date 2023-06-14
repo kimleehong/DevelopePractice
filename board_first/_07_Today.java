@@ -1,15 +1,29 @@
-package Board_first;
+package board_first;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-//# 기능6 : 상세보기 화면 만들기
-//        - 명령어 : detail
-//        - 설명 : 목록에는 게시물 번호와 제목만 나옵니다. 특정 게시물의 번호를 이용해 내용을 볼 수 있게 해주세요.
-//        - 입출력 예시
+
+//# 기능7 : 날짜 데이터 등록하기
+//        - 설명 : 게시물에 현재 번호, 제목, 내용만 있습니다. 게시물 등록 날짜를 추가해주세요.
+//        - 현재 날짜 구하기를 검색해서 구현해주세요.
 //        ```
-//        명령어 : detail
-//        상세보기 할 게시물 번호를 입력해주세요 : 3
+//        명령어 : add
+//        게시물 제목을 입력해주세요 : 제목1
+//        게시물 내용을 입력해주세요 : 내용1
+//        게시물이 등록되었습니다.
+//        명령어 : add
+//        게시물 제목을 입력해주세요 : 제목2
+//        게시물 내용을 입력해주세요 : 내용2
+//        게시물이 등록되었습니다.
+//        명령어 : list
+//        ==================
+//        제목 : 새로운 제목1
+//        ==================
+//        제목 : 제목2
+//        ==================
 //        존재하지 않는 게시물 번호입니다.
 //        명령어 : detail
 //        상세보기 할 게시물 번호를 입력해주세요 : 2
@@ -17,33 +31,39 @@ import java.util.Scanner;
 //        번호 : 2
 //        제목 : 제목2
 //        내용 : 내용2
+//        등록날짜 : 2023.06.09 10:10:10
 //        ===================
 //        ```
 
-public class _06_ViewDetails {
+public class _07_Today {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         List<String> titles = new ArrayList<>();
         List<String> contents = new ArrayList<>();
         ArrayList<Integer> ids = new ArrayList<>();
+        List<String> today = new ArrayList<>();
 
         int id = 1;
 
-        String cmd;
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy.MM.dd HH:mm:ss");
+
         while (true) {
             System.out.print("명령어 : ");
-            cmd = sc.nextLine();
+            String cmd = sc.nextLine();
 
             if (cmd.equals("add")) {
                 System.out.print("게시물 제목을 입력해주세요 : ");
                 String title = sc.nextLine();
                 System.out.print("게시물 내용을 입력해주세요 : ");
                 String content = sc.nextLine();
+                LocalDateTime currentDateTime = LocalDateTime.now();
+                String formattedDateTime = currentDateTime.format(formatter);
 
                 titles.add(title);
                 contents.add(content);
                 ids.add(id);
                 id++;
+                today.add(formattedDateTime);
 
                 System.out.println("게시물이 등록되었습니다.");
             } else if (cmd.equals("list")) {
@@ -81,13 +101,15 @@ public class _06_ViewDetails {
                     String newTitle = sc.nextLine();
                     System.out.print("새로운 내용 : ");
                     String newContent = sc.nextLine();
+                    LocalDateTime currentDateTime = LocalDateTime.now();
+                    String formattedDateTime = currentDateTime.format(formatter);
 
                     titles.set(targetIndex, newTitle);
                     contents.set(targetIndex, newContent);
+                    today.set(targetIndex, formattedDateTime);
 
                     System.out.println(index + "번 게시물이 수정되었습니다.");
                 }
-
             } else if (cmd.equals("delete")) {
                 System.out.print("삭제할 게시물 번호 : ");
                 int index = sc.nextInt();
@@ -118,12 +140,26 @@ public class _06_ViewDetails {
                 System.out.print("상세보기 할 게시물 번호를 입력해주세요 : ");
                 int index = sc.nextInt();
                 sc.nextLine();
-                if (index < 1 || index > titles.size()) {
+                int targetIndex = -1;
+
+                // 게시물 번호에 해당하는 인덱스 찾기
+                for (int i = 0; i < ids.size(); i++) {
+                    int a = ids.get(i);
+
+                    if (a == index) {
+                        targetIndex = i;
+                        break;
+                    }
+                }
+
+                if (targetIndex == -1) {
                     System.out.println("존재하지 않는 게시물 번호입니다.");
                 } else {
                     System.out.println("==================");
-                    System.out.println("제목 : " + titles.get(index - 1));
-                    System.out.println("내용 : " + contents.get(index - 1));
+                    System.out.println("번호 : " + ids.get(targetIndex));
+                    System.out.println("제목 : " + titles.get(targetIndex));
+                    System.out.println("내용 : " + contents.get(targetIndex));
+                    System.out.println("등록날짜 : " + today.get(targetIndex));
                     System.out.println("==================");
                 }
             } else if (cmd.equals("exit")) {

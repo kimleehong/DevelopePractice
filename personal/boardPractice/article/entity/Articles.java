@@ -1,4 +1,4 @@
-package personal.article.entity;
+package personal.boardPractice.article.entity;
 
 import java.util.Scanner;
 

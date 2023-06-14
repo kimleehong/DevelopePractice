@@ -1,4 +1,4 @@
-package personal.systemcontroller;
+package personal.boardPractice.systemcontroller;
 
 public class SysController {
     public void exit(){

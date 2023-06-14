@@ -1,4 +1,4 @@
-package Board_first;
+package board_first;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -199,28 +199,24 @@ public class _10_NumberOfViews {
                     System.out.println("==================");
                 }
             } else if (cmd.equals("search")) {
-                System.out.print("검색할 키워드를 입력해주세요: ");
+                System.out.print("검색 키워드를 입력해 주세요 : ");
                 String keyword = sc.nextLine();
 
-                int target = -1;
                 boolean found = false;
 
                 for (int i = 0; i < titles.size(); i++) {
                     String a = titles.get(i);
                     if (a.contains(keyword)) {
-                        target = i;
+                        System.out.println("==================");
+                        System.out.println("번호 : " + ids.get(i));
+                        System.out.println("제목 : " + titles.get(i));
+                        System.out.println("==================");
                         found = true;
-                        break;
                     }
                 }
 
                 if (!found) {
                     System.out.println("검색 결과가 없습니다.");
-                } else {
-                    System.out.println("==================");
-                    System.out.println("번호: " + ids.get(target));
-                    System.out.println("제목: " + titles.get(target));
-                    System.out.println("==================");
                 }
             } else if (cmd.equals("exit")) {
                 System.out.println("프로그램을 종료합니다.");

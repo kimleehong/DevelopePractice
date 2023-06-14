@@ -1,7 +1,7 @@
-package personal;
+package personal.boardPractice;
 
-import personal.article.articlecontroller.ArticleController;
-import personal.systemcontroller.SysController;
+import personal.boardPractice.article.articlecontroller.ArticleController;
+import personal.boardPractice.systemcontroller.SysController;
 
 import java.util.Scanner;
 

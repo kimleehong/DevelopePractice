@@ -1,7 +1,6 @@
-package personal.article.articlecontroller;
+package personal.boardPractice.article.articlecontroller;
 
-import board.article.entity.Article;
-import personal.article.entity.Articles;
+import personal.boardPractice.article.entity.Articles;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;

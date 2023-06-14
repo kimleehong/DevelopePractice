@@ -1,4 +1,4 @@
-package Board_first;
+package board_first;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -191,21 +191,23 @@ public class _09_Search {
                     System.out.println("==================");
                 }
             } else if (cmd.equals("search")) {
-                System.out.print("검색할 키워드를 입력해주세요 : ");
+                System.out.print("검색 키워드를 입력해 주세요 : ");
                 String keyword = sc.nextLine();
-                boolean found = false; // 검색 결과가 있는지 여부를 체크하는 변수
+
+                boolean found = false;
 
                 for (int i = 0; i < titles.size(); i++) {
-                    if (titles.get(i).contains(keyword)) {
+                    String a = titles.get(i);
+                    if (a.contains(keyword)) {
                         System.out.println("==================");
                         System.out.println("번호 : " + ids.get(i));
                         System.out.println("제목 : " + titles.get(i));
                         System.out.println("==================");
-                        found = true; // 검색 결과가 있다면 found를 true로 변경
+                        found = true;
                     }
                 }
 
-                if (!found) { // 검색 결과가 없는 경우에만 메시지 출력
+                if (!found) {
                     System.out.println("검색 결과가 없습니다.");
                 }
 

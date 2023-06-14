@@ -1,4 +1,4 @@
-package Board_first;
+package board_first;
 
 //# 기능5 : 게시물 삭제
 //        - 명령어 : delete
