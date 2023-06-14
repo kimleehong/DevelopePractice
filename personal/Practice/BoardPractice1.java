@@ -40,11 +40,15 @@ public class BoardPractice1 {
 
                 System.out.println("게시물이 등록되었습니다.");
             } else if (cmd.equals("list")) {
-                System.out.println("==================");
-                for (int i = 0; i < titles.size(); i++) {
-                    System.out.println("번호 : " + ids.get(i));
-                    System.out.println("제목 : " + titles.get(i));
+                if (titles.isEmpty()) {
+                    System.out.println("등록된 게시물이 없습니다.");
+                } else {
                     System.out.println("==================");
+                    for (int i = 0; i < titles.size(); i++) {
+                        System.out.println("번호 : " + ids.get(i));
+                        System.out.println("제목 : " + titles.get(i));
+                        System.out.println("==================");
+                    }
                 }
             } else if (cmd.equals("update")) {
                 System.out.print("수정할 게시물 번호 : ");
@@ -165,3 +169,4 @@ public class BoardPractice1 {
         return -1;
     }
 }
+
