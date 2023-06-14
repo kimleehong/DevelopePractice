@@ -115,11 +115,12 @@ public class BoardController {
             System.out.println("번호: " + article.getNo());
             System.out.println("제목: " + article.getTitle());
             System.out.println("내용: " + article.getBody());
-            System.out.println("조회수: " + article.getCountOfView());
             System.out.println("등록날짜: " + article.getRegistrationDate().format(DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss")));
+            article.setCountOfView(article.getCountOfView() + 1);
+            System.out.println("조회수: " + article.getCountOfView());
             System.out.println("==================");
 
-            article.setCountOfView(article.getCountOfView() + 1);
+
         }
     }
 
