@@ -1,7 +1,7 @@
-package Personal.board;
+package personal.board;
 
-import Personal.board.article.boardcontroller.BoardController;
-import Personal.board.systemcontroller.SystemController;
+import personal.board.article.boardcontroller.BoardController;
+import personal.board.systemcontroller.SystemController;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;

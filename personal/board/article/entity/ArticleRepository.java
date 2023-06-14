@@ -1,4 +1,4 @@
-package Personal.board.article.entity;
+package personal.board.article.entity;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;

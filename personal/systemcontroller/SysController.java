@@ -1,6 +1,6 @@
-package Personal.board.systemcontroller;
+package personal.systemcontroller;
 
-public class SystemController {
+public class SysController {
     public void exit(){
         System.out.println("프로그램을 종료합니다.");
     }

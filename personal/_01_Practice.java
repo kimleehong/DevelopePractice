@@ -1,4 +1,4 @@
-package Personal;
+package personal;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -38,6 +38,7 @@ public class _01_Practice {
                 contents.add(content);
                 ids.add(id);
                 id++;
+                countOfView.add(0);
 
                 System.out.println("게시물이 등록되었습니다.");
             } else if (cmd.contains("list")) {
@@ -104,6 +105,7 @@ public class _01_Practice {
                     contents.remove(target);
                     ids.remove(target);
                     registrationDates.remove(target);
+                    countOfView.remove(target);
 
                     System.out.println(index + "번 게시물이 삭제되었습니다.");
                 }

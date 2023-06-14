@@ -1,4 +1,4 @@
-package Personal.board;
+package personal.board;
 
 
 public class Main {

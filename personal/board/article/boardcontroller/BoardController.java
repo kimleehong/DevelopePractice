@@ -1,10 +1,8 @@
-package Personal.board.article.boardcontroller;
+package personal.board.article.boardcontroller;
 
-import Personal.board.article.entity.Article;
-import Personal.board.article.entity.ArticleRepository;
+import personal.board.article.entity.Article;
+import personal.board.article.entity.ArticleRepository;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -15,7 +13,6 @@ public class BoardController {
 
     public BoardController() {
         articleRepository = new ArticleRepository();
-
     }
 
     public void addPost() {
