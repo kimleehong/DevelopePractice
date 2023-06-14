@@ -7,14 +7,18 @@ import java.util.List;
 import java.util.Scanner;
 
 public class _01_Practice {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        List<String> titles = new ArrayList<>();
-        List<String> contents = new ArrayList<>();
-        List<Integer> ids = new ArrayList<>();
-        List<String> registrationDates = new ArrayList<>();
+    static Scanner sc = new Scanner(System.in);
+    static List<String> titles = new ArrayList<>();
+    static List<String> contents = new ArrayList<>();
+    static List<Integer> ids = new ArrayList<>();
+    static List<String> registrationDates = new ArrayList<>();
+    static List<Integer> countOfView = new ArrayList<>();
+    static int id = 1;
 
-        int id = 1;
+    public static void main(String[] args) {
+
+        // 테스트 데이터 추가
+        addTestData();
 
         while (true) {
             System.out.print("명령어 : ");
@@ -73,6 +77,7 @@ public class _01_Practice {
 
                     titles.set(target, newTitle);
                     contents.set(target, newContent);
+                    registrationDates.set(target, fomattedNow());
 
                     System.out.println(index + "번 게시물이 수정되었습니다.");
                 }
@@ -98,6 +103,7 @@ public class _01_Practice {
                     titles.remove(target);
                     contents.remove(target);
                     ids.remove(target);
+                    registrationDates.remove(target);
 
                     System.out.println(index + "번 게시물이 삭제되었습니다.");
                 }
@@ -120,17 +126,43 @@ public class _01_Practice {
                 if (!found) {
                     System.out.println("존재하지 않는 게시물 번호입니다.");
                 } else {
-                        System.out.println("==================");
-                        System.out.println("번호 : " + ids.get(target));
-                        System.out.println("제목 : " + titles.get(target));
-                        System.out.println("내용 : " + contents.get(target));
-                        System.out.println("등록날짜 : " + registrationDates.get(target));
-                        System.out.println("==================");
-                }
-            } else if(cmd.equals("search")) {
+                    System.out.println("==================");
+                    System.out.println("번호 : " + ids.get(target));
+                    System.out.println("제목 : " + titles.get(target));
+                    System.out.println("내용 : " + contents.get(target));
+                    System.out.println("등록날짜 : " + registrationDates.get(target));
 
-            }
-            else {
+                    int viewCount =  countOfView.get(target) + 1;
+                    countOfView.set(target, viewCount);
+
+                    System.out.println("조회수 : " + countOfView.get(target));
+                    System.out.println("==================");
+                }
+            } else if (cmd.equals("search")) {
+                System.out.print("검색 키워드를 입력해 주세요 : ");
+                String keyword = sc.nextLine();
+
+                int target = -1;
+                boolean found = false;
+
+                for (int i = 0; i < titles.size(); i++) {
+                    String a = titles.get(i);
+                    if (a.contains(keyword)) {
+                        target = i;
+                        found = true;
+                        break;
+                    }
+                }
+
+                if (!found) {
+                    System.out.println("검색 결과가 없습니다.");
+                } else {
+                    System.out.println("==================");
+                    System.out.println("번호 : " + ids.get(target));
+                    System.out.println("제목 : " + titles.get(target));
+                    System.out.println("==================");
+                }
+            } else {
                 System.out.println("잘못입력하셨습니다.");
             }
         }
@@ -142,5 +174,28 @@ public class _01_Practice {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
         String formattedDateTime = now.format(formatter);
         return formattedDateTime;
+    }
+
+    public static void addTestData() {
+        titles.add("안녕하세요 반갑습니다. 자바 공부중이에요.");
+        contents.add("첫 번째 게시물 내용입니다.");
+        ids.add(id);
+        id++;
+        registrationDates.add(fomattedNow());
+        countOfView.add(0);
+
+        titles.add("자바 질문좀 할게요~");
+        contents.add("두 번째 게시물 내용입니다.");
+        ids.add(id);
+        id++;
+        registrationDates.add(fomattedNow());
+        countOfView.add(0);
+
+        titles.add("정처기 따야되나요?");
+        contents.add("세 번째 게시물 내용입니다.");
+        ids.add(id);
+        id++;
+        registrationDates.add(fomattedNow());
+        countOfView.add(0);
     }
 }
